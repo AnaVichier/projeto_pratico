@@ -15,21 +15,18 @@ class ProprietarioController extends Controller
     function store(Request $dados)
     {
         if ($dados->id_proprietario == '') {
-            // ação de criar novo proprietário
             $proprietario = new ProprietarioModel;
             $proprietario->create($dados->all());
         } else {
-            // ação de atualizar
             $proprietario = ProprietarioModel::find($dados->id_proprietario);
             if ($proprietario) {
                 $proprietario->update($dados->all());
             }
         }
 
-        // busca todos os registros atualizados
         $proprietarios = ProprietarioModel::all();
 
-        // redireciona para a tela de listagem
+
         return view('proprietario-listar', ['proprietarios' => $proprietarios]);
     }
 

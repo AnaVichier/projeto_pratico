@@ -1,5 +1,4 @@
 <style>
-    /* Estilo geral */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
@@ -8,7 +7,6 @@
         padding: 20px;
     }
 
-    /* Container do formulário */
     form {
         max-width: 600px;
         margin: 30px auto;
@@ -18,7 +16,6 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* Títulos e labels */
     h2 {
         color: #2c3e50;
         text-align: center;
@@ -36,7 +33,6 @@
         font-size: 15px;
     }
 
-    /* Campos de input */
     input[type="text"] {
         width: 100%;
         padding: 12px 15px;
@@ -53,7 +49,6 @@
         box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
     }
 
-    /* Botão de submit */
     button[type="submit"] {
         width: 100%;
         padding: 14px;
@@ -72,7 +67,6 @@
         background-color: #2980b9;
     }
 
-    /* Validação de erros */
     .error-message {
         color: #e74c3c;
         font-size: 14px;
@@ -83,7 +77,6 @@
         border-color: #e74c3c;
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
         form {
             padding: 20px;
@@ -94,7 +87,6 @@
         }
     }
 
-    /* Layout em grid para telas maiores */
     @media (min-width: 992px) {
         .form-grid {
             display: grid;

@@ -18,11 +18,11 @@ return new class extends Migration
         $table->decimal('preco', 10, 2);
         $table->date('data_publicacao');
 
-        // Chave estrangeira para proprietario
+        
         $table->unsignedBigInteger('id_proprietario');
         $table->foreign('id_proprietario')->references('id_proprietario')->on('proprietarios')->onDelete('cascade');
 
-        // Chave estrangeira para veiculo
+        
         $table->unsignedBigInteger('id_veiculo')->unique();
         $table->foreign('id_veiculo')->references('id_veiculo')->on('veiculos')->onDelete('cascade');
 

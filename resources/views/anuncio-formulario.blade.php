@@ -1,5 +1,4 @@
 <style>
-    /* Estilo geral */
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
@@ -17,7 +16,6 @@
         padding-bottom: 10px;
     }
 
-    /* Container do formulário */
     form {
         max-width: 800px;
         margin: 0 auto;
@@ -27,7 +25,6 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* Estilo dos campos */
     label {
         display: block;
         margin: 15px 0 5px;
@@ -64,7 +61,6 @@
         resize: vertical;
     }
 
-    /* Estilo do botão */
     button {
         display: block;
         width: 100%;
@@ -84,7 +80,6 @@
         background-color: #2980b9;
     }
 
-    /* Responsividade */
     @media (max-width: 600px) {
         form {
             padding: 20px;
@@ -95,7 +90,6 @@
         }
     }
 
-    /* Estilo para os selects */
     select {
         appearance: none;
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
