@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProprietarioModel extends Model
 {
     use HasFactory;
-    protected $table = 'proprietario';
-    protected $fillable = ['id', 'nome', 'cpf', 'telefone', 'email'];
+    protected $table = 'proprietarios';
+    protected $fillable = ['id_proprietario', 'nome', 'cpf', 'telefone', 'email'];
+    public $timestamps = false;
+     protected $primaryKey = 'id_proprietario';
 }

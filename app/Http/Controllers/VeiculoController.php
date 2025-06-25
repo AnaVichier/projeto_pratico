@@ -12,14 +12,13 @@ class VeiculoController extends Controller
     }
 
     function store(Request $dados){
-        if ($dados->id == '') {
+        if ($dados->id_veiculo == '') {
             //fazemos ação de create aqui...
-            $veiculo = new VeiculoModel();
-            $veiculo->create($dados->all());
+            $veiculos = new VeiculoModel;
+            $veiculos->create($dados->all());
         } else {
-            //fazemos a ação de update aqui
-            $veiculo = VeiculoModel::find($dados->id); //localiza o registro
-            $update = $veiculo->update($dados->all()); //atualiza
+            $veiculos = VeiculoModel::find($dados->id_veiculo);
+            $veiculos->update($dados->all());
         }
         
         //recupera todos os registros atualizados
@@ -29,22 +28,23 @@ class VeiculoController extends Controller
         return view('veiculo-listar', ['veiculos'=>$veiculos]);
     }
 
-    function list(){
+    function listar(){
         $veiculos = VeiculoModel::all();
         
         return view('veiculo-listar', ['veiculos'=>$veiculos]);
     }
 
-    function remove($id){
-        VeiculoModel::destroy($id);
+    function remove($id_veiculo){
+        VeiculoModel::destroy($id_veiculo);
 
         return redirect()->route('veiculo-listar');
     }
     
-    function editar($id){
-				$veiculo = VeiculoModel::find($id);
+    function editar($id_veiculo){
+				$veiculos = VeiculoModel::find($id_veiculo);
 
-        return redirect()->route('veiculo-formulario', ['veiculo' => $veiculo]);
+       return view('veiculo-formulario', ['veiculo' => $veiculos]);
+
         //vamos enviar o $veiculo que veio do BD para a página veiculo-formulario
     }
 }

@@ -2,30 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnuncioModel;
+use App\Models\ProprietarioModel;
+use App\Models\VeiculoModel;
 use Illuminate\Http\Request;
 
 class AnuncioController extends Controller
 {
-    function formulario(){
-			return view('anuncio-formulario');
-    }
-
-    function store(Request $dados){
-        $veiculo = new VeiculoModel();
-        $veiculo->create($dados->all());
-    }
-
-    function list(){
+    public function formulario()
+    {
+        $proprietarios = ProprietarioModel::all();
         $veiculos = VeiculoModel::all();
-        
-        return view('veiculo-listar', ['veiculos'=>$veiculos]);
+        return view('anuncio-formulario', compact('proprietarios', 'veiculos'));
     }
 
-    function remove($id){
-        VeiculoModel::destroy($id);
+    public function store(Request $request)
+    {
+        AnuncioModel::updateOrCreate(
+        ['id_anuncio' => $request->id_anuncio],
+        $request->all()
+        );
 
-        return redirect()->route('veiculo-listar');
-    }   
+    return redirect()->route('anuncio-listar')->with('success', 'Anúncio salvo com sucesso!');
 }
 
 
+    public function listar()
+    {
+        $anuncios = AnuncioModel::with('proprietario', 'veiculo')->get();
+        return view('anuncio-listar', compact('anuncios'));
+    }
+
+    public function remove($id_anuncio)
+    {
+        $anuncio = AnuncioModel::findOrFail($id_anuncio);
+        $anuncio->delete();
+        return redirect()->route('anuncio-listar')->with('success', 'Anúncio removido com sucesso!');
+    }
+
+    public function editar($id_anuncio)
+    {
+        $anuncio = AnuncioModel::findOrFail($id_anuncio);
+        $proprietarios = ProprietarioModel::all();
+        $veiculos = VeiculoModel::all();
+
+        return view('anuncio-formulario', compact('anuncio', 'proprietarios', 'veiculos'));
+    }
+}

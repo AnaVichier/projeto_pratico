@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('veiculos', function (Blueprint $table) {
-        $table->id('id_veiculo');
-        $table->string('marca', 255);
-        $table->string('modelo', 255);
-        $table->string('ano', 4);
-        $table->string('placa', 10);
-        $table->string('cor', 50);
-});
-
+       Schema::create('proprietarios', function (Blueprint $table) {
+            $table->id('id_proprietario');
+            $table->string('nome', 255);
+            $table->string('cpf', 14);
+            $table->string('telefone', 20);
+            $table->string('email', 255);
+        });
     }
 
     /**
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('veiculo');
+        Schema::dropIfExists('proprietarios');
     }
 };
